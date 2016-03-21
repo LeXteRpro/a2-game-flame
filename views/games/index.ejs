@@ -1,0 +1,20 @@
+<%- include ../partials/header.ejs %>
+
+<main class="container">
+    <h1>Games</h1>
+
+    <a href="/games/add" title="Add Games">Add a new Game</a>
+
+    <ul class="list-group">
+        <% for (var i = 0; i < games.length; i++) { %>
+            <li class="list-group-item">
+                <!-- link to /artices/:id -->
+                <a href="/games/<%= games[i]._id%>" title="Read More">
+                    <%= games[i].title %></a>
+            </li>
+        <% } %>
+    </ul>
+</main>
+
+</body>
+</html>
