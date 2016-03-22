@@ -17,4 +17,12 @@ router.get('/games', function(req, res, next) {
   	 });
 });
 
+/* GET games page. */
+router.get('/directory', function(req, res, next) {
+  res.render('directory', { 
+  	title: 'Express',
+  	message: 'Message'
+  	 });
+});
+
 module.exports = router;

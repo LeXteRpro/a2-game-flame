@@ -71,7 +71,7 @@ router.post('/:id', function(req, res, next) {
     var id = req.params.id;
 
     // fill the article object
-    var game = new Games( {
+    var games = new Games( {
         _id: id,
         title: req.body.title,
         content: req.body.content

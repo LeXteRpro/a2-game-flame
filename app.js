@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var directory = require('./routes/directory');
 var games = require('./routes/games');
 
 var app = express();
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/directory', directory);
 app.use('/games', games);
 
 
