@@ -1,28 +1,44 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET Home Page. */
 router.get('/', function(req, res, next) {
   res.render('index', { 
-  	title: 'Express',
-  	message: 'Message'
+  	title: 'Home',
+  	message: 'Welcome Home'
   	 });
 });
 
-/* GET games page. */
+/* Get Games Page. */
 router.get('/games', function(req, res, next) {
   res.render('games/index', { 
-  	title: 'Express',
+  	title: 'Games',
   	message: 'Message'
   	 });
 });
 
-/* GET games page. */
+/* GET Directory Page. */
 router.get('/directory', function(req, res, next) {
   res.render('directory', { 
-  	title: 'Express',
+  	title: 'Directory',
   	message: 'Message'
   	 });
+});
+
+/* GET Genres Page */
+router.get('/genres', function(req, res, next) {
+  res.render('genres', { 
+    title: 'Genres',
+    message: 'Message'
+     });
+});
+
+/* GET Locations Page */
+router.get('/locations', function(req, res, next) {
+  res.render('locations', { 
+    title: 'Genres',
+    message: 'Message'
+     });
 });
 
 module.exports = router;
