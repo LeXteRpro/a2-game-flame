@@ -11,6 +11,7 @@ var mongoose = require('mongoose');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var games = require('./routes/games');
+
 var app = express();
 
 
@@ -24,7 +25,6 @@ db.once('open', function(callback) {
 });
 
 mongoose.connect('mongodb://localhost/text');
-
 
 
 // view engine setup

@@ -9,4 +9,12 @@ router.get('/', function(req, res, next) {
   	 });
 });
 
+/* GET games page. */
+router.get('/games', function(req, res, next) {
+  res.render('games/index', { 
+  	title: 'Express',
+  	message: 'Message'
+  	 });
+});
+
 module.exports = router;

@@ -6,35 +6,33 @@ var Games = require ('../models/games');
 
 router.get('/', function (res, req, next) {
 
-	Article.find(function(err, games) {
+    Games.find(function(err, games) {
 
-		if (err) {
-			console.log(err);
-			res.end(err);
-		}
-		else
-		{
-			res.render('games/index', {
-				title: 'Games',
-				games: games
-			});
-		}
-	});
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            res.render('games/index', {
+                title: 'Games',
+                games: games
+            });
+        }
+    });
 });
 
-router.get('add', function(res, req, next) {
-	res.render('/games/add', {
-		title: 'Add New Game'
-		});
+// GET handler for add to display a blank form
+router.get('/add', function(req, res, next) {
+    res.render('games/add', {
+        title: 'Add a New Games'
+    });
 });
-
-
-
 
 // POST handler for add to process the form
 router.post('/add', function(req, res, next) {
 
-    // save a new article using our Article model and mongoose
+    // save a new article using our Games model and mongoose
     Games.create( {
         title: req.body.title,
         content: req.body.content
@@ -50,8 +48,8 @@ router.get('/:id', function(req, res, next) {
    // create an id variable to store the id from the url
    var id = req.params.id;
 
-    // look up the selected article
-    Games.findById(id,  function(err, game) {
+    // look up the selected games
+    Games.findById(id,  function(err, games) {
      if (err) {
          console.log(err);
          res.end(err);
@@ -60,16 +58,37 @@ router.get('/:id', function(req, res, next) {
      else {
            // show the edit view
            res.render('games/edit', {
-             title: 'Article Details',
+             title: 'Games Details',
              games: games
          });
        }
    });
 });
 
+// POST handler for edit to update the game
+router.post('/:id', function(req, res, next) {
+    // create an id variable to store the id from the url
+    var id = req.params.id;
+
+    // fill the article object
+    var game = new Games( {
+        _id: id,
+        title: req.body.title,
+        content: req.body.content
+    });
+
+    // use mongoose and our Article model to update
+    Games.update( { _id: id }, games,  function(err) {
+        if (err) {
+            console.log(err)
+            res.end(err);
+        }
+        else {
+            res.redirect('/games');
+        }
+    });
+});
 
 
-
-
-// Make Public
+// make public
 module.exports = router;

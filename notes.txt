@@ -31,9 +31,9 @@ Promotions:
 Cheap Tuesday
 
 
-db.articles.insert( { created: "10/1/2015", title: "Our First Article", content: "This will be really interesting some day." } );
-db.articles.insert( { created: "10/2/2015", title: "Here is number two!", content: "This is even more fascinating." } );
-db.articles.insert( { created: "10/3/2015", title: "Day 3: Article 3", content: "OK, this one is rather boring." } );
+db.games.insert( { created: "03/20/2016", title: "Ocarina of Time", content: "An Awesome Adventure Game" } );
+db.games.insert( { created: "03/20/2016", title: "Golden Eye", content: "A classic first person shooter game" } );
+db.games.insert( { created: "03/20/2016", title: "Starcraft", content: "A top quality strategy game" } );
 
 
 
