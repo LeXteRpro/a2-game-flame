@@ -13,7 +13,8 @@ router.get('/', function(req, res, next) {
 router.get('/games', function(req, res, next) {
   res.render('games/index', { 
   	title: 'Games',
-  	message: 'Message'
+  	message: 'Message',
+    games: 'games'
   	 });
 });
 
@@ -33,6 +34,7 @@ router.get('/genres', function(req, res, next) {
      });
 });
 
+
 /* GET Locations Page */
 router.get('/locations', function(req, res, next) {
   res.render('locations', { 
@@ -40,5 +42,24 @@ router.get('/locations', function(req, res, next) {
     message: 'Message'
      });
 });
+
+/* GET Discounts Page */
+router.get('/discounts', function(req, res, next) {
+  res.render('discounts', { 
+    title: 'Discounts',
+    message: 'Discounts'
+     });
+});
+
+/* GET Advertising Page */
+router.get('/advertising', function(req, res, next) {
+  res.render('advertising', { 
+    title: 'Advertising',
+    message: 'Advertising'
+     });
+});
+
+
+
 
 module.exports = router;

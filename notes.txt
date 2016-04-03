@@ -11,7 +11,6 @@ Sony
 Xbox
 Nintendo
 
-
 Genres:
 Action
 Strategy
@@ -30,13 +29,9 @@ Aurora
 Promotions:
 Cheap Tuesday
 
-
 db.games.insert( { created: "03/20/2016", title: "Ocarina of Time", content: "An Awesome Adventure Game" } );
 db.games.insert( { created: "03/20/2016", title: "Golden Eye", content: "A classic first person shooter game" } );
 db.games.insert( { created: "03/20/2016", title: "Starcraft", content: "A top quality strategy game" } );
-
-
-
 
 
 

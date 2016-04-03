@@ -14,7 +14,8 @@ var directory = require('./routes/directory');
 var games = require('./routes/games');
 var genres = require('./routes/genres');
 var locations = require('./routes/locations');
-
+var discounts = require('./routes/discounts');
+var advertising = require('./routes/advertising');
 
 var app = express();
 
@@ -28,7 +29,7 @@ db.once('open', function(callback) {
   console.log('Connected to mongodb');
 });
 
-mongoose.connect('mongodb://localhost/text');
+mongoose.connect('mongodb://localhost/test');
 
 
 // view engine setup
@@ -49,7 +50,8 @@ app.use('/directory', directory);
 app.use('/games', games);
 app.use('/genres', genres);
 app.use('/locations', locations);
-
+app.use('/discounts', discounts);
+app.use('/advertising', advertising);
 
 
 // catch 404 and forward to error handler
