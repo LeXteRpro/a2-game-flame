@@ -22,14 +22,11 @@ router.get('/', function (res, req, next) {
     });
 });
 
-router.post('/add', function(req, res, next) {
-    Games.create( {
-        title: req.body.title,
-        content: req.body.content
-    }
-);
-    // Redirect to Games
-    res.redirect('/games');
+// GET handler for add to display a blank form
+router.get('/add', function(req, res, next) {
+    res.render('games/add', {
+        title: 'Add Game'
+    });
 });
 
 
@@ -41,7 +38,7 @@ router.post('/add', function(req, res, next) {
         title: req.body.title,
         content: req.body.content
     }
-    );
+);
 
     // redirect to main articles page
     res.redirect('/games');

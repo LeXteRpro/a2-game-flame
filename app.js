@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-
 var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
@@ -29,7 +28,7 @@ db.once('open', function(callback) {
   console.log('Connected to mongodb');
 });
 
-mongoose.connect('mongodb://localhost/test');
+// mongoose.connect('mongodb://localhost/test');
 
 
 // view engine setup
@@ -60,6 +59,11 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+
+// read db connection string from our config file
+var configDb = require('./config/db.js');
+mongoose.connect(configDb.url);
 
 // error handlers
 
