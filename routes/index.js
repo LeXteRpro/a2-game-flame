@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+
 
 /* GET Home Page. */
 router.get('/', function(req, res, next) {
@@ -14,7 +16,7 @@ router.get('/games', function(req, res, next) {
   res.render('games/index', { 
   	title: 'Games',
   	message: 'Message',
-    games: 'games'
+    games: 'games',
   	 });
 });
 
@@ -33,7 +35,6 @@ router.get('/genres', function(req, res, next) {
     message: 'Message'
      });
 });
-
 
 /* GET Locations Page */
 router.get('/locations', function(req, res, next) {
@@ -58,8 +59,6 @@ router.get('/advertising', function(req, res, next) {
     message: 'Advertising'
      });
 });
-
-
 
 
 module.exports = router;

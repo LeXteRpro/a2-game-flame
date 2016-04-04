@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Games = require ('../models/games');
+var Games = require('../models/game');
 
 router.get('/', function (res, req, next) {
 
@@ -22,7 +22,7 @@ router.get('/', function (res, req, next) {
     });
 });
 
-// GET handler for add to display a blank form
+// GET handler to display form
 router.get('/add', function(req, res, next) {
     res.render('games/add', {
         title: 'Add Game'
@@ -37,10 +37,8 @@ router.post('/add', function(req, res, next) {
     Games.create( {
         title: req.body.title,
         content: req.body.content
-    }
-);
-
-    // redirect to main articles page
+    });
+    // redirect to main games page
     res.redirect('/games');
 });
 
@@ -51,7 +49,7 @@ router.get('/:id', function(req, res, next) {
    var id = req.params.id;
 
     // look up the selected article
-    Games.findById(id,  function(err, games) {
+    Games.findById(id, function(err, game) {
      if (err) {
          console.log(err);
          res.end(err);
@@ -61,7 +59,7 @@ router.get('/:id', function(req, res, next) {
            // show the edit view
            res.render('games/edit', {
              title: 'Games',
-             games: games
+             game: game
          });
        }
    });
@@ -74,14 +72,14 @@ router.post('/:id', function(req, res, next) {
     var id = req.params.id;
 
     // fill the article object
-    var Games = new Games( {
+    var game = new Games( {
         _id: id,
         title: req.body.title,
         content: req.body.content
     });
 
     // use mongoose and our Games model to update
-    Games.update( { _id: id }, games,  function(err) {
+    Games.update( { _id: id }, game,  function(err) {
         if (err) {
             console.log(err)
             res.end(err);
@@ -91,48 +89,6 @@ router.post('/:id', function(req, res, next) {
         }
     });
 });
-
-
-router.get('/delete/:id', function (req, res, next) {
-
-    // Grab the ID parameter from the URL
-    var id = req.params.id;
-
-    Games.remove({ _id: id }, function(err) {
-
-        if (err) {
-            console.log(err);
-            res.end(err);
-        }
-
-        else {
-
-            // Show updated articles list
-            res.redirect('/games');
-        }
-    });
-});
-
-
-// Get handler for delete using the article id parameter
-router.get('/delete/:id', function(req, res, next) {
-
-    // Grab the ID parameter from the url
-    var id = req.params.id;
-
-    Games.remove({ _id: id}, function (err) {
-        if (err) {
-            console.log(err);
-            res.end(err);
-
-         }
-         else {
-            // Show updated articles list
-            res.redirect('/games');
-         }
-    });
-});
-
 
 
 // make public

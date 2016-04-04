@@ -2,21 +2,16 @@
 
 <main class="container">
 
-<% title %>
-
-<% message %>
-
-    <h1></h1>
+    <h1>Games</h1>
 
     <a href="/games/add" title="Add Games">Game List</a>
 
     <ul class="list-group">
       <% for (var i = 0; i < games.length; i++) { %>
-            <li class="list-group-item">
-                <!-- link to /games/:id -->
-                <a href="/games/<%= games[i]._id%>" title="Read More"></a>
-                    <%= games[i].title %></a>
-
+            <li class="">
+            
+                <a href="/games/<%= games[i]._id %>" title="Read More"></a>
+                    <%= games[i].title %></a>                
             </li>
    <% } %>
 

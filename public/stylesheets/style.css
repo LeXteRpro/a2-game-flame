@@ -1,8 +1,124 @@
+
+
+/* General Styling */
 body {
   padding: 50px;
+  padding-top: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #9fa8a3;
 }
+
+h4 {
+    font-size: 1.6em;
+}
+
 
 a {
   color: #00B7FF;
+   text-decoration: none;
 }
+
+ul {
+   list-style-type: none; 
+    
+}
+
+li {
+   display: inline-block;
+}
+
+
+li:last-of-type {
+   padding-right: 0;
+}
+
+a:focus, a:hover {
+   text-decoration: none;
+    
+}
+
+/* Top Header Styling */
+.top-header {
+    background-color: #3b3a36;
+    padding: 10px;
+    padding-right: 30px;
+    height: 50px;
+    
+}
+
+.top-header a {
+    font-size: 1.2em;
+    color: #f2f2f2;
+    padding-right: 10px;
+    
+}
+
+.top-header a:hover {
+    color: #c0dfd9;    
+}
+
+/* Primary Navigation Styling */
+.primary-nav ul {
+    background-color: #c9c9c9;;
+    padding: 20px;
+    padding-left: 0;
+}
+
+.primary-nav li a {
+   color: black;
+    padding: 20px;
+   font-size: 1.4em;
+   border-right: 1px solid #3b3a36;
+}
+
+.primary-nav li:first-of-type a {
+   border-left: 1px solid #3b3a36;
+}
+
+.primary-nav li a:hover {
+   background-color:#b3c2bf;
+   color: black;
+    padding: 20px;
+}
+
+.page-wrapper {
+    padding: 20px;
+    background-color: #e9ece5;
+}
+
+.directory-nav ul {
+    background-color: lightgray;
+    padding: 15px;
+    display: inline-block;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.directory-nav li a {
+    font-size: 1.3em;
+    padding: 15px;
+    color: #334431;
+}
+
+.directory-nav li a:hover {
+   background-color:#b3c2bf;
+}
+
+.footer {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-color: #3b3a36;
+    width: 100%;
+    height: 50px;
+}
+
+footer p {
+    color: #f2f2f2;
+    float: right;
+    padding: 15px;
+    margin-right: 15px;
+}
+
+

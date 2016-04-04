@@ -7,6 +7,12 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
+var passport = require('passport');
+var session = require('express-session');
+var flash = require('connect-flash');
+var localStrategy = require('passport-local').Strategy;
+
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var directory = require('./routes/directory');
@@ -16,8 +22,10 @@ var locations = require('./routes/locations');
 var discounts = require('./routes/discounts');
 var advertising = require('./routes/advertising');
 
-var app = express();
+var auth = require('./routes/auth');
 
+
+var app = express();
 
 // Connect to Mongoose
 var db = mongoose.connection;
@@ -27,6 +35,12 @@ db.on('error', console.error.bind(console, 'DB Error: '));
 db.once('open', function(callback) {
   console.log('Connected to mongodb');
 });
+
+
+// read db connection string from our config file
+var configDb = require('./config/db.js');
+mongoose.connect(configDb.url);
+
 
 // mongoose.connect('mongodb://localhost/test');
 
@@ -52,6 +66,8 @@ app.use('/locations', locations);
 app.use('/discounts', discounts);
 app.use('/advertising', advertising);
 
+app.use('/auth', auth);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,11 +75,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-
-// read db connection string from our config file
-var configDb = require('./config/db.js');
-mongoose.connect(configDb.url);
 
 // error handlers
 
