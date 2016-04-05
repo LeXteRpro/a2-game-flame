@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
@@ -23,6 +22,7 @@ var discounts = require('./routes/discounts');
 var advertising = require('./routes/advertising');
 
 var auth = require('./routes/auth');
+
 
 
 var app = express();
@@ -49,6 +49,10 @@ mongoose.connect(configDb.url);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
+app.use(flash());
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -67,6 +71,27 @@ app.use('/discounts', discounts);
 app.use('/advertising', advertising);
 
 app.use('/auth', auth);
+
+
+// Passport session support
+app.use(session({
+
+  secret: 'game-flame auth',
+  resave: true,
+  saveUninitialized: false
+
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+var Account = require('./models/account');
+passport.use(Account.createStrategy());
+
+// Methods for accessing the session
+passport.serializeUser(Account.serializeUser);
+passport.deserializeUser(Account.deserializeUser);
 
 
 // catch 404 and forward to error handler
