@@ -8,6 +8,11 @@ body {
   background-color: #9fa8a3;
 }
 
+
+h1 {
+  margin-bottom: 25px;
+}
+
 h4 {
     font-size: 1.6em;
 }
@@ -103,6 +108,23 @@ a:focus, a:hover {
 
 .directory-nav li a:hover {
    background-color:#b3c2bf;
+}
+
+
+
+input {
+  height: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+
+.button {
+  padding: 10px;
+  background-color: lightgray;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: black;
 }
 
 .footer {

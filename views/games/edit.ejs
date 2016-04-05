@@ -2,18 +2,18 @@
 
 <main class="container">
     <h1>Article Details</h1>
-    <form method="post" action="<%= games._id %>">
+    <form method="post" action="<%= game._id %>">
         <fieldset class="form-group">
             <label for="title" class="col-sm-2">Title: *</label>
-            <input name="title" id="title" required value="<%= games.title %>" />
+            <input name="title" id="title" required value="<%= game.title %>" />
         </fieldset>
         <fieldset class="form-group">
             <label for="content" class="col-sm-2">Content: *</label>
-            <textarea name="content" id="content" required><%= games.content %>
+            <textarea name="content" id="content" required><%= game.content %>
             </textarea>
         </fieldset>
         <div>
-            <%= games.created %>
+            <%= game.created %>
         </div>
         <button class="btn btn-primary col-sm-offset-2">Save</button>
 

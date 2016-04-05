@@ -22,7 +22,7 @@ router.get('/', function (res, req, next) {
     });
 });
 
-// GET handler to display form
+// Get handler to show form
 router.get('/add', function(req, res, next) {
     res.render('games/add', {
         title: 'Add Game'
@@ -43,9 +43,9 @@ router.post('/add', function(req, res, next) {
 });
 
 
-// GET handler for edit to show the populated form
+// GET handler for edit to show form
 router.get('/:id', function(req, res, next) {
-   // create an id variable to store the id from the url
+   // create an id to store the value
    var id = req.params.id;
 
     // look up the selected article
@@ -66,7 +66,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 
-// POST handler for edit to update the games
+// Post handler to update 
 router.post('/:id', function(req, res, next) {
     // create an id variable to store the id from the url
     var id = req.params.id;
@@ -78,7 +78,7 @@ router.post('/:id', function(req, res, next) {
         content: req.body.content
     });
 
-    // use mongoose and our Games model to update
+    // use mongoose and model to load
     Games.update( { _id: id }, game,  function(err) {
         if (err) {
             console.log(err)

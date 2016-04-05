@@ -8,6 +8,13 @@ var mongoose = require('mongoose');
 var Account = require('../models/account');
 
 
+// GET register and show the registration form
+router.get('/register', function (req, res, next) {
+	res.render('auth/register', {
+		title: 'Register'
+	});
+});
+
 router.post('/register', function(req, res, next) {
 
 	Account.register(new Account({ username: req.body.username }), req.body.password, function(err, account) {
@@ -24,21 +31,13 @@ router.post('/register', function(req, res, next) {
    });
 });
 
-
-
-// GET register and show the registration form
-router.get('/register', function (req, res, next) {
-	res.render('auth/register', {
-		title: 'Register'
-	});
-});
-
-// GET Login - Show login form
+// Get Login - Show login form
 router.get('/login', function (req, res, next) {
 	res.render('auth/login', {
 		title: 'Login'
 	});
 });
+
 
 router.post('/login', passport.authenticate('local', {
    successRedirect: '/games',

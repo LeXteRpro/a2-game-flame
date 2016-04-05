@@ -14,10 +14,10 @@ router.get('/', function(req, res, next) {
 /* Get Games Page. */
 router.get('/games', function(req, res, next) {
   res.render('games/index', { 
-  	title: 'Games',
-  	message: 'Message',
+    title: 'Games',
+    message: 'Message',
     games: 'games',
-  	 });
+     });
 });
 
 /* GET Directory Page. */
